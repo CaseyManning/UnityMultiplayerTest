@@ -48,9 +48,9 @@ public class NewPlayerMovement : NetworkBehaviour
 
 	private void Start()
 	{
-			//if (!isLocalPlayer) {
-			//	return;
-			//}
+			if (!isLocalPlayer) {
+				return;
+			}
 
 			m_CharacterController = GetComponent<CharacterController>();
 			m_Camera = Camera.main;
@@ -125,9 +125,9 @@ public class NewPlayerMovement : NetworkBehaviour
 	
 		private void UpdateCameraPosition(float speed)
 		{
-			//if (!isLocalPlayer) {
-			//	return;
-			//}
+			if (!isLocalPlayer) {
+				return;
+			}
 
 			Vector3 newCameraPosition;
 			if (!m_UseHeadBob)
