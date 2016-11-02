@@ -55,12 +55,11 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_CharacterController = GetComponent<CharacterController>();
             m_Camera = Camera.main;
 			otherPlayer = GameObject.Find ("Player");
-			/*if (!otherPlayer == this.gameObject) {
-				print ("We are disabling a camera");
+			if (!otherPlayer == this.gameObject) {
 				Debug.Log ("We are disabling the camera!!!!!");
-				otherPlayer.GetComponent<Camera>().enabled = false;
+				//otherPlayer.GetComponent<Camera>().enabled = false;
 			}
-			m_Camera.enabled = true;*/
+			m_Camera.enabled = true;
             m_OriginalCameraPosition = m_Camera.transform.localPosition;
             m_FovKick.Setup(m_Camera);
             m_HeadBob.Setup(m_Camera, m_StepInterval);
