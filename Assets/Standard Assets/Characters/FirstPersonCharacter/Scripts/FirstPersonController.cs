@@ -47,19 +47,33 @@ namespace UnityStandardAssets.Characters.FirstPerson
         // Use this for initialization
         private void Start()
         {
+			m_CharacterController = GetComponent<CharacterController>();
+			//m_Camera = m_CharacterController.GetComponent<Camera> ();
+			Camera foo = new Camera();
+
+			Component[] objs = GetComponentsInChildren<Component>();
+
+			foreach (Component i in objs) {
+				if (i.GetType() == foo.GetType()) {
+					m_Camera = (Camera) i;
+				}
+			}
+
 			if (!isLocalPlayer) {
+				m_Camera.enabled = false;
 				return;
 			}
-
-
-            m_CharacterController = GetComponent<CharacterController>();
-            m_Camera = Camera.main;
-			otherPlayer = GameObject.Find ("Player");
-			if (!otherPlayer == this.gameObject) {
-				Debug.Log ("We are disabling the camera!!!!!");
-				//otherPlayer.GetComponent<Camera>().enabled = false;
-			}
 			m_Camera.enabled = true;
+
+           
+			otherPlayer = GameObject.Find ("Player");
+//			Camera[] cameras = FindObjectsOfType<Camera> ();
+//			for (int i = 0; i < cameras.Length; i++) {
+//				if (cameras [i] != m_Camera) {
+//					cameras [i].enabled = false;
+//				}
+//			}
+//			m_Camera.enabled = true;
             m_OriginalCameraPosition = m_Camera.transform.localPosition;
             m_FovKick.Setup(m_Camera);
             m_HeadBob.Setup(m_Camera, m_StepInterval);
@@ -76,8 +90,10 @@ namespace UnityStandardAssets.Characters.FirstPerson
         {
 
 			if (!isLocalPlayer) {
+				m_Camera.enabled = false;
 				return;
 			}
+			m_Camera.enabled = true;
 
             RotateView();
             // the jump state needs to read here to make sure it is not missed
@@ -114,8 +130,10 @@ namespace UnityStandardAssets.Characters.FirstPerson
         {
 
 			if (!isLocalPlayer) {
+				m_Camera.enabled = false;
 				return;
 			}
+			m_Camera.enabled = true;
 
             float speed;
             GetInput(out speed);
