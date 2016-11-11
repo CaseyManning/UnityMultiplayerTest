@@ -48,6 +48,7 @@
      <Compile Include="Assets\CameraFollow.cs" />
      <Compile Include="Assets\CameraScript.cs" />
      <Compile Include="Assets\NewPlayerMovement.cs" />
+     <None Include="Assets\Fantasy Defensive Structures\Fantasy Defensive Strucures\Readme.txt" />
      <None Include="Assets\Standard Assets\Environment\Water\Water4\Shaders\FXWater4Simple.shader" />
      <None Include="Assets\Standard Assets\Environment\Water (Basic)\Shaders\FXWaterBasic.shader" />
      <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
